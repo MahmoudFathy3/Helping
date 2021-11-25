@@ -1,0 +1,511 @@
+/* Start Global Rules */
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-color: #eba937;
+    --main-alt-color: #ffd900;
+    --main-transition: 0.3s;
+    --main-padding-top: 100px;
+    --main-padding-bottom: 100px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Tajawal", sans-serif;
+    background-color: black;
+}
+
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* Small */
+
+@media (min-width: 768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+
+/* Medium */
+
+@media (min-width: 992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+
+/* Large */
+
+@media (min-width: 1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+
+
+/* End Global Rules */
+
+
+/* Start Header */
+
+header {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    min-height: 77px;
+}
+
+header .container::after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    background-color: #a2a2a2;
+    bottom: 0;
+    width: calc(100% - 30px);
+    left: 15px;
+}
+
+.header .navbar {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.header .logo img {
+    width: 70%;
+    position: relative;
+}
+
+.header .logo {
+    width: 10%;
+    position: absolute;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.close {
+    user-select: none;
+    cursor: pointer;
+}
+
+.hamburger {
+    display: none;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: #f8f6f6;
+}
+
+.header .navbar .nav-menu span {
+    display: none;
+}
+
+.nav-menu {
+    display: flex;
+}
+
+.nav-link {
+    padding: 38px 10px;
+    display: block;
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    transition: 0.3s;
+    position: relative;
+    z-index: 2;
+}
+
+.nav-link.active {
+    color: var(--main-color);
+    border-bottom: 1px solid var(--main-color);
+}
+
+.nav-link:hover {
+    color: var(--main-alt-color);
+    border-bottom: 1px solid var(--main-color);
+}
+
+@media only screen and (max-width: 768px) {
+    .nav-menu {
+        position: fixed;
+        left: -100%;
+        top: 0;
+        flex-direction: column;
+        background-color: white;
+        width: 50%;
+        height: 100%;
+        border-radius: 1px;
+        transition: 0.3s;
+        border-top: 0.5px solid #ece9e9;
+        z-index: 3;
+    }
+    .header .navbar .nav-menu span {
+        font-weight: bold;
+        font-size: 20px;
+        display: flex;
+        justify-content: flex-end;
+        padding: 20px;
+    }
+    .header .container::after {
+        display: none;
+    }
+    .nav-menu.active {
+        left: 0;
+    }
+    .header .nav-link.active {
+        border-top: 1px solid #ece9e9;
+    }
+    .header .nav-link {
+        color: black;
+        padding: 25px 10px;
+        border-bottom: 1px solid #ece9e9;
+    }
+    .header .nav-link:hover {
+        color: var(--main-color);
+    }
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+    }
+}
+
+@media (max-width: 599px) {
+    .header .logo {
+        width: 17%;
+    }
+}
+
+@media (min-height: 720px) and (max-height: 720px) {
+    .header .logo {
+        width: 15%;
+    }
+}
+
+@media (min-width: 600px) and (max-width: 766px) {
+    .header .logo {
+        width: 12%;
+    }
+}
+
+
+/* Header Media */
+
+
+/* End Header */
+
+
+/* Start Landing */
+
+.landing {
+    background-image: url(/images/landing3.jpg);
+    background-size: cover;
+    position: relative;
+}
+
+.landing::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0 0 0 / 30%);
+}
+
+.landing .container {
+    min-height: 100vh;
+}
+
+.landing .container .text {
+    position: absolute;
+    top: 180px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 400px;
+    transition: var(--main-transition);
+}
+
+.landing .text h3 {
+    font-size: 50px;
+    color: white;
+    margin: 0%;
+    max-width: 100%;
+}
+
+.landing .text h3 span {
+    color: var(--main-color);
+    transition: var(--main-transition);
+}
+
+.landing .text h3 span:hover {
+    color: var(--main-alt-color);
+}
+
+.landing .text p {
+    font-size: 30px;
+    color: rgb(241, 241, 241);
+    line-height: 1.7;
+}
+
+.landing .text p a {
+    font-weight: 600;
+    color: var(--main-color);
+    transition: var(--main-transition);
+}
+
+.landing .text p a:hover {
+    color: var(--main-alt-color);
+}
+
+.landing img {
+    position: absolute;
+    max-width: 100%;
+    bottom: -8%;
+}
+
+.landing .go-down {
+    color: var(--main-color);
+    position: absolute;
+    bottom: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: var(--main-transition);
+}
+
+.landing .go-down:hover {
+    color: var(--main-alt-color);
+}
+
+.landing .go-down i {
+    animation: bounsing 1.5s infinite;
+}
+
+
+/* Landing Media */
+
+@media (min-width: 1000px) {
+    .landing .container .text {
+        max-width: 800px;
+    }
+    .landing .go-down {
+        bottom: 200px;
+    }
+}
+
+
+/* Here the wave */
+
+@media screen and (max-width: 767px) {
+    .landing img {
+        bottom: 0;
+    }
+    .landing {
+        background-image: url(/images/landing6.jpg);
+    }
+}
+
+
+/* Here the landing background */
+
+@media screen and (min-width: 768px) {
+    .landing .container .text {
+        width: 600px;
+    }
+}
+
+@media (min-height: 1366px) and (max-height: 1367px) {
+    .landing .container .text {
+        width: 1000px;
+        top: 450px;
+    }
+    .header .nav ul li a {
+        font-size: 20px;
+    }
+    .landing .text h3 {
+        font-size: 80px;
+    }
+    .landing .text p {
+        font-size: 45px;
+    }
+    .landing img {
+        bottom: -10px;
+    }
+    .landing .go-down {
+        font-size: 30px;
+    }
+    .landing {
+        background-image: url(/images/landing6.jpg);
+    }
+}
+
+@media (min-height: 1024px) and (max-height: 1365px) {
+    .landing .container .text {
+        width: 700px;
+        top: 250px;
+    }
+    .landing .text h3 {
+        font-size: 70px;
+    }
+    .landing .text p {
+        font-size: 50px;
+    }
+    .landing img {
+        bottom: -10px;
+    }
+    .landing {
+        background-image: url(/images/landing6.jpg);
+    }
+    .landing .go-down {
+        font-size: 27px;
+    }
+}
+
+@media (min-height: 600px) and (max-height: 1023px) {
+    .landing .go-down {
+        bottom: 100px;
+    }
+}
+
+@media (min-width: 1280px) and (max-width: 1281px) {
+    .landing .container .text {
+        top: 250px;
+    }
+    .landing .go-down {
+        bottom: 180px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .landing .go-down {
+        bottom: 210px;
+    }
+    .landing .container .text {
+        margin: auto;
+    }
+    .landing .text h3 {
+        font-size: 40px;
+    }
+    .landing .text p {
+        font-size: 25px;
+    }
+}
+
+@media (max-width: 450px) {
+    .landing .container .text {
+        width: 300px;
+    }
+}
+
+@media (max-width: 280px) {
+    .landing .container .text {
+        width: 250px;
+    }
+}
+
+@media (max-width: 410px) {
+    .landing .go-down {
+        bottom: 40px;
+    }
+}
+
+@media (min-height: 812px) and (max-height: 822px) {
+    .landing .go-down {
+        bottom: 150px;
+    }
+}
+
+@media (min-height: 731px) and (max-height: 736px) {
+    .landing .go-down {
+        bottom: 150px;
+    }
+}
+
+
+/* Landing Media */
+
+
+/* End Landing */
+
+
+/* Start About Us */
+
+.about-us {
+    padding-top: var(--main-padding-top);
+    padding-bottom: var(--main-padding-bottom);
+}
+
+
+/* End About Us */
+
+
+/* Start Animation */
+
+@keyframes bounsing {
+    0%,
+    10%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translate(0);
+    }
+    40%,
+    60% {
+        transform: translateY(15px);
+    }
+}
+
+
+/* End Animation */
